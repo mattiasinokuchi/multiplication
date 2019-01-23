@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Multiplication</title>
+    		<style>
+			html {
+  				background-color: black;
+			}
+			table {
+				table-layout: fixed;
+				width: 80%;
+				color: white;
+				font-size: 200px;
+			}
+			p {
+				color: white;
+				font-size: 200px;
+				text-align: center;
+			}
+    		</style>
+	</head>
+	<body>
+    		<table>
+		<div class="resultParas">
+			<td class="number1"></td>
+			<td class="times"></td>
+			<td class="number2"></td>
+			<td class="equals"></td>
+			<td class="product"></td>
+    		</div>
+		</table>
+		<p>↩︎</p>
+		<script>
+			const number1 = document.querySelector('.number1');
+			const times = document.querySelector('.times');
+			const number2 = document.querySelector('.number2');
+			const equals = document.querySelector('.equals');
+			const product = document.querySelector('.product');
+			const para = document.querySelector('p');
+			para.addEventListener('click', updateNumbers);
+			function updateNumbers() {
+				if(product.textContent !== "?") {
+					number1.textContent = Math.floor(Math.random() * 10);
+					times.textContent = "✗";
+					number2.textContent = Math.floor(Math.random() * 10);
+					equals.textContent = "=";
+					product.textContent = "?";
+ 				} else {
+					product.textContent = number1.textContent * number2.textContent;
+				}			
+    			}
+		</script>
+	</body>
+</html>
