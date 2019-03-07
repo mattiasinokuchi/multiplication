@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Multiplication</title>
+    		<style>
+
+			@font-face {
+				font-family: 'minisystemregular';
+				src: url('minisystem-webfont.woff2') format('woff2'),
+				url('minisystem-webfont.woff') format('woff');
+				font-weight: normal;
+				font-style: normal;
+			}
+
+			html {
+  				background-color: black;
+			}
+
+			table {
+				table-layout: fixed;
+				width: 90%;
+				color: white;
+				font-size: 15vw;
+				padding: 50px;
+				font-family: 'minisystemregular';
+				text-align: center;
+			}
+
+			button {
+				font-size: 5vw;
+				border-radius: 2vw;
+				font-family: arial;
+				display: block;
+				margin-left:auto;
+				margin-right:auto;
+				padding: 2vw;
+			}
+
+    		</style>
+	</head>
+	<body>
+    		<table>
+		<div>
+			<td class="number1">.</td>
+			<td class="times">.</td>
+			<td class="number2">.</td>
+			<td class="equals">.</td>
+			<td class="product">.</td>
+    		</div>
+		</table>
+		<button id="myButton">ON</button>
+		<script>
+			var number1 = document.querySelector('.number1');
+			var times = document.querySelector('.times');
+			var number2 = document.querySelector('.number2');
+			var equals = document.querySelector('.equals');
+			var product = document.querySelector('.product');
+			var para = document.querySelector('button');
+			para.addEventListener('click', updateNumbers);
+			function updateNumbers() {
+				var btn = document.getElementById("myButton");
+				if(product.textContent !== "") {
+					number1.textContent = Math.floor(Math.random() * 10+1);
+					times.textContent = "x";
+					number2.textContent = Math.floor(Math.random() * 10+1);
+					equals.textContent = "";
+					product.textContent = "";
+					btn.innerHTML = "=";
+ 				} else {
+					equals.textContent = "=";
+					product.textContent = number1.textContent * number2.textContent;
+					btn.innerHTML = "C";
+				}			
+    			}
+		</script>
+	</body>
+</html>
